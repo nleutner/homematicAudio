@@ -26,7 +26,7 @@ Create the directory where the soundfiles from google will be placed.
 cd /usr/local/addons/homematicAudio
 mkdir sound
 
-# create symbolic link
+5. create symbolic link
 To make soundfiles available through http://<homematicIP>/addons/sound/SprachausgabeDynamisch.mp3
 you need to create a symbolic link from the addon directory to the public www directory using ssh
 
