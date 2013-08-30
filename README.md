@@ -38,3 +38,5 @@ Credits
 anli - compiled busyboy binary
 http://homematic-forum.de/forum/viewtopic.php?f=41&t=8725
 
+#@TODO
+busybox abfgragen welche CCU
