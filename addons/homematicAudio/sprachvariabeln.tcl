@@ -7,7 +7,7 @@ load tclrega.so
 
 array set values [rega_script {
 var wetterstation=dom.GetObject(2941).Value().ToInteger();
-var maxtemp=dom.GetObject('WetterMaxTemperaturHeute').Value().ToInteger();
+var maxtemp=dom.GetObject('Wetter-MaxTemperatur-Heute').Value().ToInteger();
 var prozentregen=dom.GetObject('Wetter-Regen-Heute').Value().ToInteger();
 }]
 
