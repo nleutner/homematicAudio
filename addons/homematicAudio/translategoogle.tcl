@@ -3,8 +3,8 @@
 # load libaries
 load tclrega.so
 
-# installation
-# auf der shell ebene: ln -s /usr/local/addons/homematicAudio/sound /usr/local/etc/config/addons/www/sound
+# incluce system variable mapping
+source conf/sysvariables
 
 set command ""
 append command "dom.GetObject(" \" [lindex $argv 0] \" ").Value();"
