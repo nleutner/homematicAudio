@@ -5,7 +5,7 @@ var prozentregen=dom.GetObject('Wetter-Regen-Heute').Value().ToInteger();
 
 ! Füllen der Variable
 var w0 = dom.GetObject('SprachausgabeDynamisch');
-w0.State("Aktuell "#current#" Grad, Maximale Temperatur "#maxtemp#" Grad, Regenrisiko Heute"#prozentregen#" Prozent");
+w0.State("Wetter aktuell: "#current#" Grad, Maximale Temperatur: "#maxtemp#" Grad, Regenrisiko Heute:"#prozentregen#" Prozent");
 
 ! Ansage vorbereiten
 dom.GetObject("CUxD.CUX2801001:1.CMD_EXEC").State("cd /usr/local/addons/homematicAudio && tclsh translategoogle.tcl 'SprachausgabeDynamisch'");
