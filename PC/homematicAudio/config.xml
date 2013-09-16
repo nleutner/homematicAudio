@@ -1,9 +1,20 @@
 <config version="3" port="8881" suffix="" update="False" trayR="False" trayS="False" CCU="">
   <Tables>
     <CodeMap>
-      <Beschreibung>AirFoil Volume</Beschreibung>
+      <Beschreibung>Audio Off</Beschreibung>
+      <Befehl>audioOff</Befehl>
+      <Code>cmd(audioOff.cmd)</Code>
+      <verwendet>false</verwendet>
+    </CodeMap>
+    <CodeMap>
+      <Beschreibung>AirFoil Volume </Beschreibung>
       <Befehl>volume</Befehl>
       <Code>cmd(cscript.exe bin/SetVolume.js /volume:{0} /speaker:{1} )</Code>
+    </CodeMap>
+    <CodeMap>
+      <Beschreibung>VLC Airfoil streaming on Apple Air Play</Beschreibung>
+      <Befehl>stream</Befehl>
+      <Code>cmd(stream.cmd {0} {1} {2} {3} {4})</Code>
     </CodeMap>
     <AutoRun>
       <Beschreibung>CCU-SysVar CCU-RemotePC einschalten</Beschreibung>

@@ -1,16 +1,16 @@
 ::
 :: Script for connecting aifoils speakers and launching vcl to stream radio
-:: The Script takes the Airfoil speaker names as argument
+:: The Script takes the stream url as first parameter and aditional Airfoil the speaker names as argument
 ::
 :: usage:
-:: radio.cmd "AirPort Express Wohnzimmer"
-:: radio.cmd "AirPort Express Wohnzimmer" "AirPort Express Schlafzimmer"
+:: radio.cmd "http://1live.akacast.akamaistream.net/7/706/119434/v1/gnl.akacast.akamaistream.net/1live" "AirPort Express Wohnzimmer"
+:: radio.cmd "http://1live.akacast.akamaistream.net/7/706/119434/v1/gnl.akacast.akamaistream.net/1live" "AirPort Express Wohnzimmer" "AirPort Express Schlafzimmer"
 ::
-
 
 @echo off
 
-set STREAMURL=http://1live.akacast.akamaistream.net/7/706/119434/v1/gnl.akacast.akamaistream.net/1live
+set STREAMURL=%1
+shift
 
 set VLC="C:\Program Files\VideoLAN\VLC\vlc.exe"
 set VOLUME=256
