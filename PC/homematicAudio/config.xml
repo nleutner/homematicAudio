@@ -1,0 +1,42 @@
+<config version="3" port="8881" suffix="" update="False" trayR="False" trayS="False" CCU="">
+  <Tables>
+    <CodeMap>
+      <Beschreibung>AirFoil Volume</Beschreibung>
+      <Befehl>volume</Befehl>
+      <Code>cmd(cscript.exe bin/SetVolume.js /volume:{0} /speaker:{1} )</Code>
+    </CodeMap>
+    <AutoRun>
+      <Beschreibung>CCU-SysVar CCU-RemotePC einschalten</Beschreibung>
+      <URL>&lt;CCU&gt;('CCU-RemotePC').State(1)</URL>
+      <Tray />
+      <aktiv>false</aktiv>
+      <primarykey>0</primarykey>
+    </AutoRun>
+    <AutoRun>
+      <Beschreibung>CCU-SysVar CCU-RemotePC ausschalten </Beschreibung>
+      <URL>http://&lt;CCU-IP&gt;:8181/CCU-RemotePC.exe?state=dom.GetObject('CCU-RemotePC').State(0)</URL>
+      <Tray />
+      <aktiv>false</aktiv>
+      <primarykey>1</primarykey>
+    </AutoRun>
+    <AutoRun>
+      <Beschreibung>FHEM-Dummy D1 einschalten</Beschreibung>
+      <URL>&lt;FHEM&gt;?cmd.D1=set D1 on</URL>
+      <Tray />
+      <aktiv>false</aktiv>
+      <primarykey>2</primarykey>
+    </AutoRun>
+    <Aliases>
+      <Name>CCU-IP</Name>
+      <Value>IP-Adresse der CCU</Value>
+    </Aliases>
+    <Aliases>
+      <Name>CCU</Name>
+      <Value>http://&lt;CCU-IP&gt;:8181/CCU-RemotePC.exe?state=dom.GetObject</Value>
+    </Aliases>
+    <Aliases>
+      <Name>FHEM</Name>
+      <Value>http://user:password@FHEM_IP:PORT/fhem</Value>
+    </Aliases>
+  </Tables>
+</config>
