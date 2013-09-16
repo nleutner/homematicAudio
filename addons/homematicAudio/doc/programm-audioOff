@@ -1,0 +1,6 @@
+!
+! General usage:
+! tclsh audioOff.tcl
+
+! Kill VLC and disconnect speakers
+dom.GetObject("CUxD.CUX2801001:1.CMD_EXEC").State("cd /usr/local/addons/homematicAudio && tclsh audioOff.tcl");
