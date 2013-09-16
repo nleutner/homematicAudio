@@ -1,0 +1,9 @@
+!
+! General usage:
+! tclsh stream.tcl <streamurl> <speakername>
+! or for more speakers:
+! tclsh stream.tcl <streamurl> <speakername> <speakername>
+
+
+! 1Live Radio starten
+dom.GetObject("CUxD.CUX2801001:1.CMD_EXEC").State("cd /usr/local/addons/homematicAudio && tclsh stream.tcl 'http://1live.akacast.akamaistream.net/7/706/119434/v1/gnl.akacast.akamaistream.net/1live' 'AirPort Express Schlafzimmer' 'AirPort Express T-Home'");
