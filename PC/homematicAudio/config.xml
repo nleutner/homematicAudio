@@ -16,6 +16,11 @@
       <Befehl>stream</Befehl>
       <Code>cmd(stream.cmd {0} {1} {2} {3} {4})</Code>
     </CodeMap>
+    <CodeMap>
+      <Beschreibung>Play soundfile from homematic</Beschreibung>
+      <Befehl>readout</Befehl>
+      <Code>cmd(readout.cmd {0} {1} {2} {3} {4})</Code>
+    </CodeMap>
     <AutoRun>
       <Beschreibung>CCU-SysVar CCU-RemotePC einschalten</Beschreibung>
       <URL>&lt;CCU&gt;('CCU-RemotePC').State(1)</URL>
