@@ -1,10 +1,12 @@
 Implementierung der Sprachausgabe über translate.google und Audio Ausgabe von Stream URL.
+Der Befehl wird von der homematic an den PC gesendet und von CCU-RemotePC ausgeführt.
 
 Entsprechende Hardware vorausgesetzt.
 
-*   http://www.videolan.org/vlc/            VLC Player
-*   http://www.apple.com/de/airplay/        z.B. Airport Express
-*   http://dragonfly.at/CCU-RemotePC.html   Ab Version v1.3.1
+*   http://www.videolan.org/vlc/                VLC Player
+*   http://www.apple.com/de/airplay/            z.B. Airport Express
+*   http://dragonfly.at/CCU-RemotePC.html       Ab Version v1.3.1
+*   http://www.rogueamoeba.com/airfoil/windows/ Airfoil
 
 ####Benötigte Addons:
 #####CCU1:
@@ -38,7 +40,6 @@ Telnet Session (Windows) öffnen:
 *   Port: 22
 
 #####CCU1/CCU2
-[Wunderground](http://deutsch.wunderground.com/weather/api/) -> Api Wunderground Developer Key
 
 [CUx-Daemon](http://www.homematic-inside.de/software/cuxdaemon) -> Performance schonender Aufruf
 
@@ -72,7 +73,7 @@ CCURemotePort             |Port in der Einstellung der CCU-RemotePC.exe
 
 
 
-####audiOff.tcl
+####audioOff.tcl
 Diese Programm wird mit einem homematic Programm aufgerufen. Es sendet einen Befehl an den PC auf dem CCU-RemotePC.exe gestartet ist.
 Die CCU-RemotePC.exe startet die audioOff.cmd. Dadurch werden alle Airplay Geräte deaktiviert und der VLC Player beendet.
 
@@ -92,7 +93,7 @@ dom.GetObject("CUxD.CUX2801001:1.CMD_EXEC").State("cd /usr/local/addons/homemati
 
 ####readout.tcl
 Diese Programm wird mit einem homematic Programm aufgerufen. Es sendet einen Befehl an den PC auf dem CCU-RemotePC.exe gestartet ist.
-Die CCU-RemotePC.exe startet die readout.cmd.
+Die CCU-RemotePC.exe startet die readout.cmd. Diese beginnt mit der Wiedergabe der .mp3 auf den entsprechenden Airport Geräten.
 
 #####Systemvariabeln
  Name                     | Variablentyp| Werte|Maßeinheit
@@ -111,13 +112,14 @@ dom.GetObject("CUxD.CUX2801001:1.CMD_EXEC").State("cd /usr/local/addons/homemati
 
  Name                     | Beschreibung
 :-------------------------|:------------------------------------------
-Datei.mp3                 | Dateiname der unter /Sound/ liegenden .mp3
-AirPort Gerät             | Optionale Parameter, wenn keine angegeben werden alle Geräte angesprochen
+Datei.mp3                 |Dateiname der unter /Sound/ liegenden .mp3
+AirPort Gerät             |Optionale Parameter. Bei fehlen werden alle Geräte angesprochen.
 
 
 
 ####stream.tcl
-Wiedergabe eines AudioStreams
+Diese Programm wird mit einem homematic Programm aufgerufen. Es sendet einen Befehl an den PC auf dem CCU-RemotePC.exe gestartet ist.
+Die CCU-RemotePC.exe startet die stream.cmd. Diese startet die Wiedergabe eines AudioStreams.
 
 #####Systemvariabeln
  Name                     | Variablentyp| Werte|Maßeinheit
@@ -137,12 +139,22 @@ Wiedergabe eines AudioStreams
 dom.GetObject("CUxD.CUX2801001:1.CMD_EXEC").State("cd /usr/local/addons/homematicAudio && tclsh stream.tcl 'http://1live.akacast.akamaistream.net/7/706/119434/v1/gnl.akacast.akamaistream.net/1live' 'AirPort Express Schlafzimmer' 'AirPort Express T-Home'");
 ```
 
+#####Parameter
+> dom.GetObject("CUxD.CUX2801001:1.CMD_EXEC").State("cd /usr/local/addons/homematicAudio && tclsh stream.tcl 'streamURL' 'AirPort Gerät' 'AirPort Gerät'");
+
+ Name                     | Beschreibung
+:-------------------------|:------------------------------------------
+streamURL                 |Angabe der streamURL
+AirPort Gerät             |Optionale Parameter. Bei fehlen werden alle Geräte angesprochen.
+
 
 
 
 
 ####translategoogle.tcl
-Dieses Programm ruft
+Mit diesem Programm wird eine Systemvariabel mit einem Text befüllt. Dieser wird an translate.google übergeben und eine .mp3 wird auf der CCU unter /sound abgelegt.
+Anschließend wird der Befehl an den PC auf dem CCU-RemotePC.exe gestartet ist gesendet.
+Die CCU-RemotePC.exe startet die translategoogle.cmd.
 
 #####Systemvariabeln
  Name                     | Variablentyp| Werte|Maßeinheit
@@ -187,7 +199,9 @@ dom.GetObject("CUxD.CUX2801001:1.CMD_EXEC").State("cd /usr/local/addons/homemati
 
 
 ####volume.tcl
-Dieses Programm ruft
+Diese Programm wird mit einem homematic Programm aufgerufen. Es sendet einen Befehl an den PC auf dem CCU-RemotePC.exe gestartet ist.
+Die CCU-RemotePC.exe startet die volume.cmd. Diese stellt die Lautstärke der Airplay Geräte ein.
+
 
 #####Systemvariabeln
  Name                     | Variablentyp| Werte|Maßeinheit
@@ -209,3 +223,10 @@ dom.GetObject("CUxD.CUX2801001:1.CMD_EXEC").State("cd /usr/local/addons/homemati
 !Volume 50% for speaker called "AirPort Express Wohnzimmer"
 dom.GetObject("CUxD.CUX2801001:1.CMD_EXEC").State("cd /usr/local/addons/homematicAudio && tclsh volume.tcl 0,2 'AirPort Express Wohnzimmer' ");
 ```
+#####Parameter
+dom.GetObject("CUxD.CUX2801001:1.CMD_EXEC").State("cd /usr/local/addons/homematicAudio && tclsh volume.tcl Wert 'AirPort Gerät' ");
+
+ Name                     | Beschreibung
+:-------------------------|:------------------------------------------
+Wert                      |Der Wert kann zwischen 0 0,1 1 liegen
+AirPort Gerät             |Optionale Parameter. Bei fehlen werden alle Geräte angesprochen.
