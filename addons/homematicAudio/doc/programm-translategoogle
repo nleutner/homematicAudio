@@ -1,2 +1,9 @@
+
+! Variable zur Sprachausgabe mit Text füllen
 dom.GetObject('SprachausgabeDynamisch').State('Hallo Welt !');
+
+! Ansage vorbereiten und mp3 ablegen
 dom.GetObject("CUxD.CUX2801001:1.CMD_EXEC").State("cd /usr/local/addons/homematicAudio && tclsh translategoogle.tcl 'SprachausgabeDynamisch'");
+
+! Ansage vorlesen
+dom.GetObject("CUxD.CUX2801001:1.CMD_EXEC").State("cd /usr/local/addons/homematicAudio && tclsh readout.tcl 'SprachausgabeDynamisch.mp3' 'AirPort Express T-Home'");

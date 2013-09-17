@@ -3,12 +3,11 @@ var current=dom.GetObject('Wetter-Temp-Aktuell').Value().ToInteger();
 var maxtemp=dom.GetObject('Wetter-MaxTemp-Heute').Value().ToInteger();
 var prozentregen=dom.GetObject('Wetter-Regen-Heute').Value().ToInteger();
 
-! Füllen der Variable
 var w0 = dom.GetObject('SprachausgabeDynamisch');
-w0.State("Wetter aktuell: "#current#" Grad, Maximale Temperatur: "#maxtemp#" Grad, Regenrisiko Heute:"#prozentregen#" Prozent");
+w0.State("Aktuell "#current#" Grad, Maximale Temperatur "#maxtemp#" Grad, Regenrisiko Heute"#prozentregen#" Prozent");
 
-! Ansage vorbereiten
+! Ansage vorbereiten und mp3 ablegen
 dom.GetObject("CUxD.CUX2801001:1.CMD_EXEC").State("cd /usr/local/addons/homematicAudio && tclsh translategoogle.tcl 'SprachausgabeDynamisch'");
 
-! Ausgabe der Ansage über CCU Remote-PC (ggf. in eigenes Script auslagern)
-dom.GetObject("CUxD.CUX2801001:1.CMD_EXEC").State("wget -q -O /dev/null 'http://192.168.2.20:8881/schlafzimmer'");
+! Ansage vorlesen
+dom.GetObject("CUxD.CUX2801001:1.CMD_EXEC").State("cd /usr/local/addons/homematicAudio && tclsh readout.tcl 'SprachausgabeDynamisch.mp3' 'AirPort Express T-Home'");
