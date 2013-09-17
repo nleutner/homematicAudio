@@ -174,9 +174,8 @@ dom.GetObject("CUxD.CUX2801001:1.CMD_EXEC").State("cd /usr/local/addons/homemati
 dom.GetObject("CUxD.CUX2801001:1.CMD_EXEC").State("cd /usr/local/addons/homematicAudio && tclsh readout.tcl 'SprachausgabeDynamisch.mp3' 'AirPort Express T-Home'");
 ```
 
-Beispiel Ausgabe mit Werten der Homematic
-
 #####Aufruf im homematic Programm:
+Beispiel: Ausgabe mit Werten der homematic Systemvariabeln
 ```
 ! Vorbereitung Wetteransage
 var current=dom.GetObject('Wetter-Temp-Aktuell').Value().ToInteger();
@@ -193,6 +192,14 @@ dom.GetObject("CUxD.CUX2801001:1.CMD_EXEC").State("cd /usr/local/addons/homemati
 dom.GetObject("CUxD.CUX2801001:1.CMD_EXEC").State("cd /usr/local/addons/homematicAudio && tclsh readout.tcl 'SprachausgabeDynamisch.mp3' 'AirPort Express T-Home'");
 
 ```
+
+#####Parameter
+dom.GetObject("CUxD.CUX2801001:1.CMD_EXEC").State("cd /usr/local/addons/homematicAudio && tclsh translategoogle.tcl 'Systemvariabel'");
+
+ Name                     | Beschreibung
+:-------------------------|:------------------------------------------
+Systemvariabel            |Name der Systemvariabel dessen String als .mp3 erstellt werden soll
+
 
 
 
@@ -222,9 +229,9 @@ dom.GetObject("CUxD.CUX2801001:1.CMD_EXEC").State("cd /usr/local/addons/homemati
 ```
 
 #####Parameter
-dom.GetObject("CUxD.CUX2801001:1.CMD_EXEC").State("cd /usr/local/addons/homematicAudio && tclsh volume.tcl **Wert** '**AirPort Gerät**' ");
+dom.GetObject("CUxD.CUX2801001:1.CMD_EXEC").State("cd /usr/local/addons/homematicAudio && tclsh volume.tcl Wert 'AirPort Gerät' ");
 
  Name                     | Beschreibung
 :-------------------------|:------------------------------------------
-Wert                      |Der Wert kann zwischen 0 0,1 1 liegen
+Wert                      |Der Wert kann zwischen 0,1 - 1 liegen
 AirPort Gerät             |Optionale Parameter. Bei fehlen werden alle Geräte angesprochen.
