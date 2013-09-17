@@ -73,7 +73,8 @@ CCURemotePort             |Port in der Einstellung der CCU-RemotePC.exe
 
 
 ####audiOff.tcl
-Diese Programm
+Diese Programm wird mit einem homematic Programm aufgerufen. Es sendet einen Befehl an den PC auf dem CCU-RemotePC.exe gestartet ist.
+Die CCU-RemotePC.exe startet die audioOff.cmd. Dadurch werden alle Airplay Geräte deaktiviert und der VLC Player beendet.
 
 #####Systemvariabeln
  Name                     | Variablentyp| Werte|Maßeinheit
@@ -90,7 +91,8 @@ dom.GetObject("CUxD.CUX2801001:1.CMD_EXEC").State("cd /usr/local/addons/homemati
 
 
 ####readout.tcl
-Dieses Programm wird benötigt um auf der CCU-Remote ein Befehl auszuführen TODO
+Diese Programm wird mit einem homematic Programm aufgerufen. Es sendet einen Befehl an den PC auf dem CCU-RemotePC.exe gestartet ist.
+Die CCU-RemotePC.exe startet die readout.cmd.
 
 #####Systemvariabeln
  Name                     | Variablentyp| Werte|Maßeinheit
@@ -104,7 +106,12 @@ dom.GetObject("CUxD.CUX2801001:1.CMD_EXEC").State("cd /usr/local/addons/homemati
 
 ```
 
-
+#####Parameter
+dom.GetObject("CUxD.CUX2801001:1.CMD_EXEC").State("cd /usr/local/addons/homematicAudio && tclsh readout.tcl '<Datei.mp3>' '<AirPort Gerät>' '<AirPort Gerät>'");
+ Name                     | Beschreibung
+:-------------------------|:------------------------------------------
+<Datei.mp3>               | Dateiname der unter /Sound/ liegenden .mp3
+<AirPort Gerät>           | Optionale Parameter, wenn keine angegeben werden alle Geräte angesprochen
 
 
 
