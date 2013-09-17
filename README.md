@@ -211,20 +211,18 @@ Die CCU-RemotePC.exe startet die volume.cmd. Diese stellt die Lautstärke der Ai
 
 #####Aufruf im homematic Programm:
 ```
-!
-! General usage:
-! tclsh volume.tcl <volumelevel> <speakername>
-! or for all speakers:
-! tclsh volume.tcl <volumelevel>
-
 !Master Volume 20% (all speakers)
 dom.GetObject("CUxD.CUX2801001:1.CMD_EXEC").State("cd /usr/local/addons/homematicAudio && tclsh volume.tcl 0,2");
+```
 
+#####Aufruf im homematic Programm:
+```
 !Volume 50% for speaker called "AirPort Express Wohnzimmer"
 dom.GetObject("CUxD.CUX2801001:1.CMD_EXEC").State("cd /usr/local/addons/homematicAudio && tclsh volume.tcl 0,2 'AirPort Express Wohnzimmer' ");
 ```
+
 #####Parameter
-dom.GetObject("CUxD.CUX2801001:1.CMD_EXEC").State("cd /usr/local/addons/homematicAudio && tclsh volume.tcl Wert 'AirPort Gerät' ");
+dom.GetObject("CUxD.CUX2801001:1.CMD_EXEC").State("cd /usr/local/addons/homematicAudio && tclsh volume.tcl **Wert** '**AirPort Gerät**' ");
 
  Name                     | Beschreibung
 :-------------------------|:------------------------------------------
