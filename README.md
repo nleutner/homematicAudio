@@ -222,7 +222,7 @@ dom.GetObject("CUxD.CUX2801001:1.CMD_EXEC").State("cd /usr/local/addons/homemati
 ```
 
 #####Parameter
-dom.GetObject("CUxD.CUX2801001:1.CMD_EXEC").State("cd /usr/local/addons/homematicAudio && tclsh volume.tcl **Wert** '' **AirPort Gerät**  '' ");
+dom.GetObject("CUxD.CUX2801001:1.CMD_EXEC").State("cd /usr/local/addons/homematicAudio && tclsh volume.tcl **Wert** '**AirPort Gerät**' ");
 
  Name                     | Beschreibung
 :-------------------------|:------------------------------------------
