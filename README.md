@@ -107,11 +107,12 @@ dom.GetObject("CUxD.CUX2801001:1.CMD_EXEC").State("cd /usr/local/addons/homemati
 ```
 
 #####Parameter
-> dom.GetObject("CUxD.CUX2801001:1.CMD_EXEC").State("cd /usr/local/addons/homematicAudio && tclsh readout.tcl '<Datei.mp3>' '<AirPort Gerät>' '<AirPort Gerät>'");
+> dom.GetObject("CUxD.CUX2801001:1.CMD_EXEC").State("cd /usr/local/addons/homematicAudio && tclsh readout.tcl 'Datei.mp3' 'AirPort Gerät' 'AirPort Gerät'");
+
  Name                     | Beschreibung
 :-------------------------|:------------------------------------------
-<Datei.mp3>               | Dateiname der unter /Sound/ liegenden .mp3
-<AirPort Gerät>           | Optionale Parameter, wenn keine angegeben werden alle Geräte angesprochen
+Datei.mp3                 | Dateiname der unter /Sound/ liegenden .mp3
+AirPort Gerät             | Optionale Parameter, wenn keine angegeben werden alle Geräte angesprochen
 
 
 
