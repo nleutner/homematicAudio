@@ -14,7 +14,7 @@ shift
 
 set VLC="C:\Program Files\VideoLAN\VLC\vlc.exe"
 set VOLUME=256
-set OPTIONS=--volume=%VOLUME%
+set OPTIONS=--play-and-exit --volume=%VOLUME%
 
 :: connect passed airfoil speakers
 :loop
