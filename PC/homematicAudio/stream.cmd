@@ -22,7 +22,7 @@ set OPTIONS=--volume=%VOLUME%
     IF [%1]==[] GOTO continue
 
     :: call script to connect speakers
-    call cscript.exe bin\connect.js %1
+    call cscript.exe bin\connect.js /speaker:%1
 
     shift
     Goto loop

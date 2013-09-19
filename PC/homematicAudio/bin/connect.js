@@ -1,35 +1,36 @@
 //
 // Script to connect airfoil speakers by name
+// If argument /speaker:"<speaker name>" is passed, the script will only connect 
+// the passed speaker, othwersite all speakers will be connected
 //
 // usage from CLI:
-// connect.js "AirPort Express Schlafzimmer"
+// connect.js /speaker:"AirPort Express Schlafzimmer"
 //
 
 
-airplayLautsprecher = WScript.Arguments.Item(0);
+colNamedArguments = WScript.Arguments.Named;
 
+strSpeaker = colNamedArguments.Item("speaker");
 
-//WScript.Echo(airplayLautsprecher);
+//WScript.Echo("Speaker: " + strSpeaker + ""); 
 
-//var airplayLautsprecher = "AirPort Express Schlafzimmer";
 var airfoilApp = WScript.CreateObject("RogueAmoeba.Airfoil");
 var speakerCollection = airfoilApp.GetSpeakers();
 
 for (var i = 0; i < speakerCollection.Count(); i++)
 {
 	var speaker = speakerCollection.Item(i);
-	// WScript.Echo("Speaker " + i + " is " + speaker.Name() + "\n");
-
-	if(speaker.Name() == airplayLautsprecher)
-	{
-	    //speaker.Disconnect();	
+	//WScript.Echo("Speaker " + i + " is " + speaker.Name() + "\n");
+        if ( WScript.Arguments.Count() == 0 || strSpeaker == '')
+        {
+           speaker.Connect();
+           //WScript.Echo(speaker.Name() + " disconnected\n");   
+        }        
+	else if(speaker.Name() == strSpeaker)
+	{	
             speaker.Connect();
-		//WScript.Echo(speaker.Name() + " wurde verbunden\n");
+            //WScript.Echo(speaker.Name() + " disconnected\n");
 	}
-}
 
-function endsWith(str, suffix)
-{
-    return str.indexOf(suffix, str.length - suffix.length) !== -1;
 }
 

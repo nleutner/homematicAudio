@@ -21,6 +21,16 @@
       <Befehl>readout</Befehl>
       <Code>cmd(readout.cmd {0} {1} {2} {3} {4})</Code>
     </CodeMap>
+    <CodeMap>
+      <Beschreibung>AirFoil Speaker </Beschreibung>
+      <Befehl>disconnect</Befehl>
+      <Code>cmd(cscript.exe bin/disconnect.js /speaker:{0} )</Code>
+    </CodeMap>
+    <CodeMap>
+      <Beschreibung>AirFoil Speaker</Beschreibung>
+      <Befehl>connect</Befehl>
+      <Code>cmd(cscript.exe bin/connect.js /speaker:{0} )</Code>
+    </CodeMap>
     <AutoRun>
       <Beschreibung>CCU-SysVar CCU-RemotePC einschalten</Beschreibung>
       <URL>&lt;CCU&gt;('CCU-RemotePC').State(1)</URL>
