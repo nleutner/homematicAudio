@@ -29,17 +29,29 @@ if { $::argc == 0 } {
     exit 1;
 }
 
-# CCU Remote Address
+# send curl CCU remote request
+set exe "/usr/local/addons/homematicAudio/curl"
+set env(LD_LIBRARY_PATH) /usr/local/addons/homematicAudio
+
 set url http://$CCURemoteIP:$CCURemotePort/volume
 
+# generate params
 set params ""
 
 # loop arguments
 foreach arg $::argv {
     set encoded [url-encode $arg]
-    append params "?\"" $encoded "\""
+    append params "?%22" $encoded "%22"
 }
 
 append url $params
 
-catch {exec ./busybox wget -q -O /dev/null "$url"} error
+# curl options
+set options " --silent \\\n"
+
+if { [catch {exec sh -c "$exe $options $url"} error] } {
+    puts stderr "Error while sendding curl request: \n$error"
+    exit 1
+}
+
+exit 0
