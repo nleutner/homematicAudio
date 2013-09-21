@@ -28,7 +28,7 @@ set filename [lindex $argv 0].mp3
 #puts $url
 #puts $filename
 
-if { [catch {exec ./busybox wget -q -U Mozilla -O sound/$filename "$url"} error] } {
+if { [catch {exec wget -q -U Mozilla -O sound/$filename "$url"} error] } {
     puts stderr "Could not fetch $filename from $url \n$error"
     exit 1
 }
