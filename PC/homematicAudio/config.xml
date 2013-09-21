@@ -1,35 +1,34 @@
 <config version="3" port="8881" suffix="" update="False" trayR="False" trayS="False" CCU="">
   <Tables>
     <CodeMap>
-      <Beschreibung>Audio Off</Beschreibung>
+      <Beschreibung>Kills vlc player</Beschreibung>
       <Befehl>audioOff</Befehl>
       <Code>cmd(audioOff.cmd)</Code>
-      <verwendet>false</verwendet>
+      <verwendet>true</verwendet>
     </CodeMap>
     <CodeMap>
       <Beschreibung>AirFoil Volume </Beschreibung>
       <Befehl>volume</Befehl>
       <Code>cmd(cscript.exe bin/SetVolume.js /volume:{0} /speaker:{1} )</Code>
+      <verwendet>true</verwendet>
     </CodeMap>
     <CodeMap>
       <Beschreibung>VLC Airfoil streaming on Apple Air Play</Beschreibung>
       <Befehl>stream</Befehl>
       <Code>cmd(stream.cmd {0} {1} {2} {3} {4})</Code>
-    </CodeMap>
-    <CodeMap>
-      <Beschreibung>Play soundfile from homematic</Beschreibung>
-      <Befehl>readout</Befehl>
-      <Code>cmd(readout.cmd {0} {1} {2} {3} {4})</Code>
+      <verwendet>true</verwendet>
     </CodeMap>
     <CodeMap>
       <Beschreibung>AirFoil Speaker </Beschreibung>
       <Befehl>disconnect</Befehl>
       <Code>cmd(cscript.exe bin/disconnect.js /speaker:{0} )</Code>
+      <verwendet>true</verwendet>
     </CodeMap>
     <CodeMap>
       <Beschreibung>AirFoil Speaker</Beschreibung>
       <Befehl>connect</Befehl>
       <Code>cmd(cscript.exe bin/connect.js /speaker:{0} )</Code>
+      <verwendet>true</verwendet>
     </CodeMap>
     <AutoRun>
       <Beschreibung>CCU-SysVar CCU-RemotePC einschalten</Beschreibung>

@@ -29,7 +29,7 @@ set OPTIONS=--play-and-exit --volume=%VOLUME%
 
 :continue
 :: kill existing tasks
-taskkill /F /IM vlc.exe
+:: taskkill /F /IM vlc.exe
 
 :: connect radio stream using vlc
 start "" %VLC% %OPTIONS% %STREAMURL%
